@@ -120,6 +120,11 @@ argument_specs:
             type: str
             required: false
             description: Explicit borgmatic ssh_command value.
+          create:
+            type: bool
+            required: false
+            default: true
+            description: Generate the SSH keypair. Disable for install-only mode.
       borgbackup_config:
         type: dict
         required: false
@@ -130,9 +135,14 @@ argument_specs:
             required: false
             default: config.yaml
             description: Borgmatic config filename under /etc/borgmatic.
+          create:
+            type: bool
+            required: false
+            default: true
+            description: Generate the borgmatic configuration. Disable for install-only mode.
           repositories:
             type: raw
-            required: true
+            required: false
             description: Repository path, list of paths, or list of borgmatic repository dictionaries.
           source_directories:
             type: list
