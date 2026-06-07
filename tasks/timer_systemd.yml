@@ -25,10 +25,10 @@
     mode: "{{ item.mode }}"
   loop:
     - src: borgmatic.timer.j2
-      dest: /usr/lib/systemd/system/borgmatic.timer
+      dest: "/usr/lib/systemd/system/{{ _borgbackup_timer.name }}.timer"
       mode: "0644"
     - src: borgmatic.service.j2
-      dest: /usr/lib/systemd/system/borgmatic.service
+      dest: "/usr/lib/systemd/system/{{ _borgbackup_timer.name }}.service"
       mode: "0644"
 
 - name: Reload systemd daemon
